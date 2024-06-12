@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 COMPANY_COORDINATES = [55.751244, 37.618423]
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", [])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', [])
 
 SECRET_KEY = env.str("SECRET_KEY", "REPLACE_ME")
 
@@ -105,3 +105,6 @@ MEDIA_URL = os.getenv('MEDIA_URL', '/media/')
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+print('STATIC_URL', STATIC_URL)
+print('STATICFILES_DIRS', STATICFILES_DIRS)
+print('SECRET_KEY', SECRET_KEY)
