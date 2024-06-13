@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{% static 'styles.min.css' %}">
   </head>
   <body>
-
     <!--================Header Menu Area =================-->
     <header class="header_area">
       <div class="main_menu">
@@ -57,13 +56,7 @@
         </div>
       </section>
       <!--================Hero Banner end =================-->
-<!--  {% for post in most_popular_posts %}-->
-<!--  <p>-->
-<!--    <img src="{{post.image_url}}" alt=""><br/>-->
-<!--    {{post.title}}<br/>-->
-<!--    {{post.published_at}}<br/>-->
-<!--  </p>-->
-<!--  {% endfor %}-->
+
     <!--================ Blog popular post start =================-->
       <section>
         <div class="container">
@@ -135,6 +128,28 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-8">
+              {% for post in fresh_posts %}
+                <div class="single-recent-blog-post">
+                  <div class="thumb">
+                    {% if post.image_url %}
+                      <img class="img-fluid" src="{{post.image_url}}" alt="">
+                    {% else %}
+                      <img class="img-fluid" src="{% static 'img/banner/blog.png'%}" alt="">
+                    {% endif %}
+                    <ul class="thumb-info">
+                      <li><a href="#"><i class="ti-user"></i>{{post.author}}</a></li>
+                      <li><a href="#"><i class="ti-notepad"></i>{{post.published_at}}</a></li>
+                      <li><a href="#"><i class="ti-themify-favicon"></i>{{post.comments_amount}} Comments</a></li>
+                    </ul>
+                  </div>
+                  <div class="details mt-20">
+                    <h3>{{post.title}}</h3>
+                    <p>{{post.text}}</p>
+                    <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                  </div>
+                </div>
+              {% endfor %}
+
               <div class="single-recent-blog-post">
                 <div class="thumb">
                   <img class="img-fluid" src="{% static 'img/blog/blog1.png'%}" alt="">
@@ -150,7 +165,6 @@
                   <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
                 </div>
               </div>
-
               <div class="single-recent-blog-post">
                 <div class="thumb">
                   <img class="img-fluid" src="{% static 'img/blog/blog2.png' %}" alt="">
